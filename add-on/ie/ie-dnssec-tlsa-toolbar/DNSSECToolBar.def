@@ -1,0 +1,9 @@
+; DNSSECToolBar.def : Declares the module parameters.
+
+LIBRARY      "ie-dnssec-tlsa-validator.dll"
+
+EXPORTS
+	DllCanUnloadNow      PRIVATE
+	DllGetClassObject    PRIVATE
+	DllRegisterServer    PRIVATE
+	DllUnregisterServer	 PRIVATE

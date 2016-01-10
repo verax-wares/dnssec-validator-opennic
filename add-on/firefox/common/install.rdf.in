@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+/* ***** BEGIN LICENSE BLOCK *****
+Copyright (C) 2013-2015 CZ.NIC z.s.p.o.
+
+Authors: Martin Straka <martin.straka@nic.cz>
+
+This file is part of DNSSEC/TLSA Validator Add-on.
+
+DNSSEC/TLSA Validator Add-on is free software: you can redistribute it and/or
+modify it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or (at your
+option) any later version.
+
+DNSSEC/TLSA Validator Add-on is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+more details.
+
+You should have received a copy of the GNU General Public License along with
+DNSSEC/TLSA Validator Add-on.  If not, see <http://www.gnu.org/licenses/>.
+***** END LICENSE BLOCK ***** */
+ -->
+
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+  <Description about="urn:mozilla:install-manifest">
+    <em:id>dnssec@nic.cz</em:id>
+    <em:name>DNSSEC/TLSA Validator</em:name>
+    <em:description>Checks whether domain names in the address bar are secured by DNSSEC and checks certificate with TLSA record if exists.</em:description>
+    <em:version>@VERSION@</em:version>
+    <em:type>2</em:type>
+    <em:creator>CZ.NIC Labs</em:creator>
+    <em:developer>Martin Straka</em:developer> <!-- martin.straka(AT)nic.cz -->
+    <em:developer>Karel Slaný</em:developer> <!-- karel.slany(AT)nic.cz -->
+    <em:contributor>Ondřej Filip</em:contributor> <!-- ondrej.filip(AT)nic.cz -->
+    <em:contributor>Ondřej Surý</em:contributor> <!-- ondrej.sury(AT)nic.cz -->
+    <em:contributor>Martin Sojka</em:contributor> <!-- martin.sojka(AT)nic.cz -->
+    <em:contributor>Bedrich Kosata</em:contributor> <!-- bedrich.kosata(AT)nic.cz -->
+    <em:contributor>Pavel Tůma</em:contributor> <!-- pavel.tuma(AT)nic.cz -->
+    <em:translator>Martin Straka</em:translator> <!-- martin.straka(AT)nic.cz -->
+    <em:translator>Karel Slaný</em:translator> <!-- karel.slany(AT)nic.cz -->
+    <em:translator>Michał Kępień</em:translator> <!--  michal.kepien(AT)nask.pl -->
+    <em:translator>Tomasz Hatlapa</em:translator> <!-- tomasz.hatlapa(AT)nic.cz -->
+    <em:homepageURL>https://www.dnssec-validator.cz/</em:homepageURL>
+    <em:iconURL>chrome://dnssec/skin/icon.png</em:iconURL>
+    <em:optionsURL>chrome://dnssec/content/preferences.xul</em:optionsURL>
+    <em:aboutURL>chrome://dnssec/content/about.xul</em:aboutURL>
+    <em:targetPlatform>@OS_TARGET@</em:targetPlatform>
+ <em:targetApplication>
+      <Description>
+        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id> <!-- Firefox, Iceweasel, Flock -->
+        <em:minVersion>18.0</em:minVersion>
+        <em:maxVersion>39.0</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+    <em:targetApplication>
+      <Description>
+        <em:id>{86c18b42-e466-45a9-ae7a-9b95ba6f5640}</em:id> <!-- Mozilla -->
+        <em:minVersion>1.5</em:minVersion>
+        <em:maxVersion>1.8+</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+    <em:unpack>true</em:unpack>
+  </Description>
+</RDF>

@@ -1,0 +1,34 @@
+
+if EXTPKG_SAF_NP
+
+TARGETS += \
+	as-dnssec-tlsa-validator-@PACKAGE_VERSION@.sh
+
+as-dnssec-tlsa-validator-@PACKAGE_VERSION@.sh: $(abs_top_srcdir)/install_osx_safari_add_payload.sh $(abs_top_srcdir)/install_osx_safari_stub.sh
+	@if [ -f $(abs_top_builddir)/add-on/safari.safariextz ]; then \
+		PKGS_DIR=_dtvsnp_workdir \
+		SCRIPT_STUB="$(abs_top_srcdir)/install_osx_safari_stub.sh" \
+		TARGET_FILE="$@" \
+		PLUGIN_SRC_DIR="$(abs_top_srcdir)/core_npapi" \
+		ADDON_SRC_DIR="$(abs_top_srcdir)/add-on" \
+		DNSSEC_DIR=npDNSSECValidatorPlugin.plugin \
+		TLSA_DIR=npTLSAValidatorPlugin.plugin \
+		SAFARIEXT=safari.safariextz \
+		$(abs_top_srcdir)/install_osx_safari_add_payload.sh; \
+		cp "_dtvsnp_workdir/$@" $@; \
+	else \
+		echo "###########################################################"; \
+		echo " Generate the file safari.safariextz manually and place it "; \
+		echo " into the add-on/ directory in order to generate safari    "; \
+		echo " extension installer.                                      "; \
+		echo " You may then continue with the command make -C add-on .   "; \
+		echo "###########################################################"; \
+	fi
+
+WORKDIRS += \
+	_dtvsnp_workdir
+
+CLEANFILES += \
+	as-dnssec-tlsa-validator-@PACKAGE_VERSION@.sh
+
+endif

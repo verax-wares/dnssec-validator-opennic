@@ -1,0 +1,7 @@
+{ global:
+dnssec_glob_val_ctx;
+dnssec_set_validation_options;
+dnssec_validate;
+dnssec_validation_deinit;
+dnssec_validation_init;
+local: *; };

@@ -1,0 +1,294 @@
+/* ***** BEGIN LICENSE BLOCK *****
+Copyright (C) 2013-2015 CZ.NIC z.s.p.o.
+
+Authors: Martin Straka <martin.straka@nic.cz>
+
+This file is part of DNSSEC/TLSA Validator Add-on.
+
+DNSSEC/TLSA Validator Add-on is free software: you can redistribute it and/or
+modify it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or (at your
+option) any later version.
+
+DNSSEC/TLSA Validator Add-on is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+more details.
+
+You should have received a copy of the GNU General Public License along with
+DNSSEC/TLSA Validator Add-on.  If not, see <http://www.gnu.org/licenses/>.
+***** END LICENSE BLOCK ***** */
+
+
+/*TLSA success*/
+#dnssec-tlsa-box.dm_vs0 > #dnssec-tlsa-icon,
+#dnssec-tlsa-box.dm_vs1 > #dnssec-tlsa-icon,
+#dnssec-tlsa-box.dm_vs2 > #dnssec-tlsa-icon,
+#dnssec-tlsa-box.dm_vs3 > #dnssec-tlsa-icon {
+  width: 19px;
+  height: 19px;
+  list-style-image: url("chrome://dnssec/skin/tlsa_valid.png"); /* 19x19 */
+}
+/*TLSA false*/
+#dnssec-tlsa-box.dm_vf > #dnssec-tlsa-icon,
+#dnssec-tlsa-box.dm_vf0 > #dnssec-tlsa-icon,
+#dnssec-tlsa-box.dm_vf1 > #dnssec-tlsa-icon,
+#dnssec-tlsa-box.dm_vf2 > #dnssec-tlsa-icon,
+#dnssec-tlsa-box.dm_vf3 > #dnssec-tlsa-icon,
+#dnssec-tlsa-box.dm_dnssecbogus > #dnssec-tlsa-icon,
+#dnssec-tlsa-box.dm_tlsapramwrong > #dnssec-tlsa-icon {
+  width: 19px;
+  height: 19px;
+  list-style-image: url("chrome://dnssec/skin/tlsa_invalid.png"); /* 19x19 */
+}
+
+
+#dnssec-tlsa-box.dm_errorgeneric > #dnssec-tlsa-icon,
+#dnssec-tlsa-box.dm_error > #dnssec-tlsa-icon,
+#dnssec-tlsa-box.dm_error > #dnssec-tlsa-icon,
+#dnssec-tlsa-box.dm_wrongres > #dnssec-tlsa-icon,
+#dnssec-tlsa-box.dm_rfesolverfailed > #dnssec-tlsa-icon {
+  width: 19px;
+  height: 19px;
+  list-style-image: url("chrome://dnssec/skin/tlsa_error.png"); /* 19x19 */
+}
+
+#dnssec-tlsa-box.dm_validationoff > #dnssec-tlsa-icon {
+  width: 19px;
+  height: 19px;
+  list-style-image: url("chrome://dnssec/skin/tlsa_off.png"); /* 19x19 */
+}
+
+#dnssec-tlsa-box.dm_nohttps > #dnssec-tlsa-icon {
+  width: 19px;
+  height: 19px;
+  list-style-image: url("chrome://dnssec/skin/tlsa_nohttps.png"); /* 19x19 */
+}
+
+#dnssec-tlsa-box.dm_dnssecunsecured > #dnssec-tlsa-icon {
+  width: 19px;
+  height: 19px;
+  list-style-image: url("chrome://dnssec/skin/tlsa_nodnssec.png"); /* 19x19 */
+}
+
+#dnssec-tlsa-box.dm_notlsarecord > #dnssec-tlsa-icon{
+  width: 19px;
+  height: 19px;
+  list-style-image: url("chrome://dnssec/skin/tlsa_no.png"); /* 19x19 */
+}
+
+#dnssec-tlsa-box.dm_action > #dnssec-tlsa-icon {
+  width: 19px;
+  height: 19px;
+  list-style-image: url("chrome://dnssec/skin/tlsa_action.gif"); /* 19x19 */
+}
+
+#dnssec-tlsa-box.dm_certerr > #dnssec-tlsa-icon,
+#dnssec-tlsa-box.dm_certchain > #dnssec-tlsa-icon {
+  width: 19px;
+  height: 19px;
+  list-style-image: url("chrome://dnssec/skin/tlsa_orange.png"); /* 19x19 */
+}
+
+#dnssec-tlsa-box.dm_nxdomain > #dnssec-tlsa-icon {
+  width: 19px;
+  height: 19px;
+  list-style-image: url("chrome://dnssec/skin/tlsa_init.png"); /* 19x19 */
+}
+
+#dnssec-tlsa-box.dm_inaction {
+  display: none;
+}
+
+/* tlsa indicator */
+#dnssec-tlsa-outerbox {
+  -moz-box-align: center;
+}
+
+#dnssec-tlsa-box {
+  width: 19px;
+  height: 19px;
+  padding: 0px 2px;
+/*  background-color: rgba(221, 221, 221, 1.0);   grey */
+/*  background-color: -moz-dialog; */
+/*  color: -moz-dialogtext; */
+/*  -moz-border-end: 1px solid ThreeDShadow; */
+}
+
+
+#dnssec-tlsa-box:focus {
+  outline: 1px dotted -moz-DialogText;
+}
+
+
+/*-----------------------------------------------------*/
+/*----------------------POPUP--------------------------*/
+
+/* tlsa popup images */
+#dnssec-tlsa-popup-icon {
+  padding: 0;
+}
+
+/* tlsa popup bounding box - title */
+#dnssec-tlsa-popup-container {
+  min-width: 280px;
+  padding: 10px;
+  max-width: 400px;
+}
+
+/* green */
+#dnssec-tlsa-popup.dm_vs0 > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon,
+#dnssec-tlsa-popup.dm_vs1 > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon,
+#dnssec-tlsa-popup.dm_vs2 > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon,
+#dnssec-tlsa-popup.dm_vs3 > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon {
+  list-style-image: url("chrome://dnssec/skin/tlsa_valid.png"); 
+}
+
+/* error */
+
+#dnssec-tlsa-popup.dm_errorgeneric > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon,
+#dnssec-tlsa-popup.dm_error > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon,
+#dnssec-tlsa-popup.dm_rfesolverfailed > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon,
+#dnssec-tlsa-popup.dm_wrongres > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon {
+  list-style-image: url("chrome://dnssec/skin/tlsa_error.png");
+}
+
+/* red */
+#dnssec-tlsa-popup.dm_vf > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon,
+#dnssec-tlsa-popup.dm_vf0 > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon,
+#dnssec-tlsa-popup.dm_vf1 > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon,
+#dnssec-tlsa-popup.dm_vf2 > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon,
+#dnssec-tlsa-popup.dm_dnssecbogus > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon,
+#dnssec-tlsa-popup.dm_tlsapramwrong > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon,
+#dnssec-tlsa-popup.dm_vf3 > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon {
+  list-style-image: url("chrome://dnssec/skin/tlsa_invalid.png"); 
+}
+
+/* off */
+#dnssec-tlsa-popup.dm_validationoff > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon {
+  list-style-image: url("chrome://dnssec/skin/tlsa_off.png"); 
+}
+
+/* nxdomain */
+#dnssec-tlsa-popup.dm_nxdomain > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon {
+  list-style-image: url("chrome://dnssec/skin/tlsa_init.png"); 
+}
+
+/* no dnssec */
+#dnssec-tlsa-popup.dm_dnssecunsecured > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon {
+  list-style-image: url("chrome://dnssec/skin/tlsa_nodnssec.png"); 
+}
+
+/* nohttps */
+#dnssec-tlsa-popup.dm_nohttps > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon {
+  list-style-image: url("chrome://dnssec/skin/tlsa_nohttps.png"); 
+}
+
+/* cert error */
+#dnssec-tlsa-popup.dm_notlsarecord > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon {
+  list-style-image: url("chrome://dnssec/skin/tlsa_no.png"); 
+}
+
+/* cert error */
+#dnssec-tlsa-popup.dm_certerr > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon,
+#dnssec-tlsa-popup.dm_certchain > #dnssec-tlsa-popup-container > #dnssec-tlsa-popup-content-box > #dnssec-tlsa-popup-icon {
+  list-style-image: url("chrome://dnssec/skin/tlsa_orange.png"); 
+}
+
+
+/* tlsa popup body text - title */
+#dnssec-tlsa-popup-content-box > label,
+#dnssec-tlsa-popup-content-box > description {
+  white-space: pre-wrap;
+  padding-left: 0px;
+  margin: 0px;
+  max-width: 335px;
+}
+
+/* tlsa popup body text - title */
+#dnssec-tlsa-popup-content-box2 > label,
+#dnssec-tlsa-popup-content-box2 > description {
+  white-space: pre-wrap;
+  padding-left: 10px;
+  margin: 0px;
+  max-width: 335px;
+}
+
+/* tlsa popup body text - title */
+#dnssec-tlsa-popup-content-box3 > label,
+#dnssec-tlsa-popup-content-box3 > description {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin: 0px;
+  min-width: 280px;
+  max-width: 335px;
+}
+
+/* tlsa popup body text - title */
+#dnssec-tlsa-popup-content-box4 > label,
+#dnssec-tlsa-popup-content-box4 > description {
+  margin: 0px;
+  min-width: 280px;
+  max-width: 335px;
+}
+
+
+/* label text style */
+#dnssec-tlsa-popup-security-label {
+  font-weight: bold;
+  max-width: 335px;
+  font-size: 120%;
+  display: block;
+}
+
+/* message text style */
+#dnssec-tlsa-popup-domainLabel,
+#dnssec-tlsa-popup-nodomainLabel,
+#dnssec-tlsa-popup-securedDomainLabel,
+#dnssec-tlsa-popup-unsecuredDomainLabel {
+  display: none;
+}
+
+/* domain name text style */
+#dnssec-tlsa-popup-content-host {
+  font-weight: bold;
+  max-width: 335px;
+}
+
+/* domain name text style */
+#dnssec-tlsa-popup-content-host-text {
+}
+
+/* tlsa popup bounding box - title */
+#dnssec-tlsa-popup-container {
+  min-width: 280px;
+  padding: 0px;
+  max-width: 335px;
+}
+
+#dnssec-tlsa-popup-homepage {
+  padding-top: 8px;
+  font-size: 90%;
+}
+
+
+#dnssec-tlsa-popup-ipbrowser-title {
+  padding-top: 8px;
+  font-size: 90%;
+}
+
+#dnssec-tlsa-popup-ipvalidator-title {
+  padding-top: 5px;
+  font-size: 90%;
+}
+
+#dnssec-tlsa-popup-ipbrowser-ip {
+  font-weight: bold;
+  font-size: 90%;
+}
+
+#dnssec-tlsa-popup-ipvalidator-ip {
+  font-weight: bold;
+  font-size: 90%;
+}
+

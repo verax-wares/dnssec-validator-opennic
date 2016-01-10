@@ -1,0 +1,7 @@
+{ global:
+dane_glob_val_ctx;
+dane_set_validation_options;
+dane_validate;
+dane_validation_deinit;
+dane_validation_init;
+local: *; };

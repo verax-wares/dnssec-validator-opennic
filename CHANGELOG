@@ -1,0 +1,91 @@
+V2.2.0.2 / 15.5.2015
+- Applied a hotfix from Joe Kucera fixing occasional Firefox crash.
+- Fixed some javascript compatibility issues with new Firefox versions.
+- Build system moved to autotools.
+- Fixed Polish translation.
+- The js-ctypes libraries are first sought in local extension directory
+  rather than in the system location.
+
+V2.2.0.1 / 9.9.2014
+- Bug-fix release for Mozilla Firefox only.
+- Fixed bug. On Windows the js-ctypes plug-in cores could not be loaded because
+  of wrong library names.
+
+V2.2.0 / 4.9.2014
+- Deleted nsICache service in js-ctypes extension.
+  (Compatibility issue Firefox >= 32.* .)
+- OpenSSL 1.0.1i.
+- Updated prefixes for DOM nodes in Firefox js-ctypes extension.
+- Fixed bug in type 2 TLSA record validation.
+- Polish localisation.
+- New validator implementation for Chromium/Chrome based
+  on Native Messaging.
+- Fixed some another bugs.
+
+V2.1.2 / 30.7.2014
+- New js-ctypes-based implementation for Firefox.
+- Build mechanism fixes.
+- Extension can be build/linked against system libunbound.
+- Added name-spaces to Firefox javascript code.
+- Updated FireBreath version.
+- OpenSSL 1.0.1h.
+- Added new state notifying about entering a non-existent (according
+  to DNSSEC) web site.
+- Fixed some warnings reported from AMO.
+- Unbound 1.4.22.
+- Fixed some another bugs.
+
+v2.1.1 / 13.3.2014
+
+- Ported DNSSEC/TLSA validator to Apple Safari.
+- Fixed SSL bug. Certificate chain was not checked when SSL connection was rejected by host.
+- MF: Added new TLSA-validator option. The plug-in can now download the certificate chain by itself. See issue #31.
+- TLSA add-on bug fix: Certificate chain was not obtained when SSL_connect() returned 0.
+- Plug-ins are capable of writing into system log on Mac OS X.
+- Fixed some another bugs.
+
+v2.1.0 / 25.1.2014
+
+- Port DNSSEC/TLSA validator on the Opera browser
+- Plugins: add and fix validation of DNSSEC/TLSA records for IPv6-only or IPv4-only host -> now based on getaddrinfo();
+- Plugins: fix DNSSEC/TLSA validation performance
+- GC,OP,IE: fix default settings when localstore was not created
+- GC,OP,IE: fix CA cert can missing in the cert chain obtained from remote server
+- GC,OP,MF: add checkbox for enable the validation of every HTTPS request into settings
+- All: it can add port number behind IP address in the custom resolver/forwarder
+- Source codes refactoring
+- Update build system (Makefiles update)
+- Fixed some another bugs
+
+v2.1.0-rc1 / 12.12.2013
+
+- DANE/TLSA validation support for all browsers
+- User can cancel HTTPS connection when TLSA validation fail (only MF and GC)
+- New design, new icons for DNSSEC/TLSA status
+- Fix bug with IPv6 comparison - (RFC 5952)
+- Fix memory leaks
+- Add new error states of validator
+- Update settings of validators
+- Fix loss TLSA settings when resolver test button was pressed
+- Popup with "resolver not support DNSSEC" was changed by new state of the icon
+- New build system (Makefile), support for BSD
+
+v2.0.1 / 23.4.2013
+
+- Change default settings of validator (choice "Without resolver" is now default)
+- Fixed problem with pop-up when resolver does not support DNSSEC
+- Fixed problems reporting from Mozilla AMO
+  - Fixed problem that asynchronous Validate method may block the main thread until it receives a network reply
+
+v2.0 / 3.4.2013
+
+- Validator core is based on libunbound library
+- Unifies the look and functionality for all the affected browsers
+- User-friendly validator preferences
+- Possibility to select specific TLDs and zones which will not be validated
+- Shows IP addresses of browser and validator when the IP address which the browser is using differs from the address obtained by the DNSSEC
+- Warning pop-up is displayed when resolver does not support DNSSEC
+- English, German and Czech localization are supported
+
+v2.0.beta1 / 5.12.2012
+- First technical preview.

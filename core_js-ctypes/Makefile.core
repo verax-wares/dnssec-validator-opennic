@@ -1,0 +1,76 @@
+
+LDNS_STATIC_DEP = \
+	$(abs_top_builddir)/static-libs/$(LIBS_BUILT)/ldns/lib/libldns.a
+
+DNSSEC_CORE_SRCS = \
+	$(top_srcdir)/plugin-source/common/common.c \
+	$(top_srcdir)/plugin-source/common/common.h \
+	$(top_srcdir)/plugin-source/common/config_related.h \
+	$(top_srcdir)/plugin-source/common/log.h \
+	$(top_srcdir)/plugin-source/DNSSECValidatorPlugin/dnssec-plug.c \
+	$(top_srcdir)/plugin-source/DNSSECValidatorPlugin/dnssec-plug.h \
+	$(top_srcdir)/plugin-source/DNSSECValidatorPlugin/dnssec-states.gen.h
+
+DNSSEC_CORE_SRCS_EXTRA = \
+	$(top_srcdir)/plugin-source/DNSSECValidatorPlugin/dnssec-states.gen \
+	$(top_srcdir)/plugin-source/DNSSECValidatorPlugin/root.key
+
+if LOG_DFLT
+DNSSEC_CORE_SRCS += \
+	$(top_srcdir)/plugin-source/common/log_dflt.c
+endif
+if LOG_OSX
+DNSSEC_CORE_SRCS += \
+	$(top_srcdir)/plugin-source/common/log_osx.m
+endif
+
+DNSSEC_CORE_STATIC_DEPS = \
+	$(abs_top_builddir)/static-libs/$(LIBS_BUILT)/unbound/lib/libunbound.a \
+	$(abs_top_builddir)/static-libs/$(LIBS_BUILT)/openssl/lib/libssl.a \
+	$(abs_top_builddir)/static-libs/$(LIBS_BUILT)/openssl/lib/libcrypto.a
+
+
+DANE_CORE_SRCS = \
+	$(top_srcdir)/plugin-source/common/common.c \
+	$(top_srcdir)/plugin-source/common/common.h \
+	$(top_srcdir)/plugin-source/common/config_related.h \
+	$(top_srcdir)/plugin-source/common/log.h \
+	$(top_srcdir)/plugin-source/TLSAValidatorPlugin/ca_stores.h \
+	$(top_srcdir)/plugin-source/TLSAValidatorPlugin/dane-plug.c \
+	$(top_srcdir)/plugin-source/TLSAValidatorPlugin/dane-plug.h \
+	$(top_srcdir)/plugin-source/TLSAValidatorPlugin/dane-states.gen.h
+
+DANE_CORE_SRCS_EXTRA = \
+	$(top_srcdir)/plugin-source/TLSAValidatorPlugin/dane-states.gen
+
+if CA_STORE_DIR
+DANE_CORE_SRCS += \
+	$(top_srcdir)/plugin-source/TLSAValidatorPlugin/ca_store_directory.c
+endif
+if CA_STORE_NSS
+DANE_CORE_SRCS += \
+	$(top_srcdir)/plugin-source/TLSAValidatorPlugin/ca_store_nss.c
+endif
+if CA_STORE_OSX
+DANE_CORE_SRCS += \
+	$(top_srcdir)/plugin-source/TLSAValidatorPlugin/ca_store_osx.m
+endif
+if CA_STORE_WIN
+DANE_CORE_SRCS += \
+	$(top_srcdir)/plugin-source/TLSAValidatorPlugin/ca_store_win.c
+endif
+
+if LOG_DFLT
+DANE_CORE_SRCS += \
+	$(top_srcdir)/plugin-source/common/log_dflt.c
+endif
+if LOG_OSX
+DANE_CORE_SRCS += \
+	$(top_srcdir)/plugin-source/common/log_osx.m
+endif
+
+DANE_CORE_STATIC_DEPS = \
+	$(abs_top_builddir)/static-libs/$(LIBS_BUILT)/ldns/lib/libldns.a \
+	$(abs_top_builddir)/static-libs/$(LIBS_BUILT)/unbound/lib/libunbound.a \
+	$(abs_top_builddir)/static-libs/$(LIBS_BUILT)/openssl/lib/libssl.a \
+	$(abs_top_builddir)/static-libs/$(LIBS_BUILT)/openssl/lib/libcrypto.a
