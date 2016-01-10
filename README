@@ -1,0 +1,6 @@
+This is nic.cz's dnssec-validator plugin, modified to use OpenNIC's DNS hierachy.  
+
+All credit belongs to the original authors (see authors.info) 
+This version is maintained by verax - verax@8chan.co
+
+The original can be found at https://gitlab.labs.nic.cz/labs/dnssec-validator
